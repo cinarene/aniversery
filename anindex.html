@@ -1,0 +1,228 @@
+/<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Anniversary!</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for a touch of elegance */
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+    }
+    .hero-bg {
+      /* This makes the background image fill the container, scaling it as needed */
+      background-image: url('https://images.unsplash.com/photo-1517724395345-23c2149b049e?q=80&w=2670&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    /* Add a subtle overlay to the hero image for text readability */
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .text-outline {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    /* --- NEW SLIDESHOW STYLES --- */
+    /* Container for the slideshow, now with a fixed aspect ratio */
+    .slideshow-container {
+      position: relative;
+      /* Define a fixed aspect ratio for the container to prevent layout shifts */
+      width: 100%;
+      max-width: 800px;
+      padding-top: 75%; /* 4:3 aspect ratio (3/4 * 100%) */
+      margin: auto;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .slideshow-img {
+      /* Force the image to cover the entire container */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* This is the key: it crops the image to fit the container */
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    /* Navigation arrows */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 1rem;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      transition: 0.6s ease;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev {
+      left: 0;
+      border-radius: 0 3px 3px 0;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+  <!-- Hero Section -->
+  <header class="h-screen w-full flex flex-col items-center justify-center text-center text-white hero-bg hero-overlay relative">
+    <div class="p-8 rounded-xl bg-black bg-opacity-30 backdrop-blur-sm shadow-xl mx-4">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-outline">Happy 5-Year Anniversary!</h1>
+      <p class="mt-4 text-xl sm:text-2xl lg:text-3xl font-light text-outline">To the love of my life.</p>
+      <p class="mt-2 text-lg sm:text-xl lg:text-2xl font-light text-outline">Every moment with you is a gift.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-12 md:py-20 container mx-auto px-4">
+    
+    <!-- Slideshow Section -->
+    <section class="max-w-4xl mx-auto my-12 md:my-20 text-center">
+      <h2 class="text-3xl sm:text-4xl font-semibold mb-8">Our Journey in Pictures</h2>
+      <div class="slideshow-container relative">
+        <!-- Slides are inserted by JavaScript -->
+        <img class="slideshow-img" src="" alt="Photo from our journey">
+        <!-- Navigation Buttons -->
+        <a class="prev absolute top-1/2 -translate-y-1/2 left-4 text-white p-4 rounded-full bg-black bg-opacity-50 hover:bg-opacity-80 transition-colors">❮</a>
+        <a class="next absolute top-1/2 -translate-y-1/2 right-4 text-white p-4 rounded-full bg-black bg-opacity-50 hover:bg-opacity-80 transition-colors">❯</a>
+      </div>
+    </section>
+
+    <!-- Photo Collage/Grid Section -->
+    <section class="max-w-4xl mx-auto my-12 md:my-20 text-center">
+      <h2 class="text-3xl sm:text-4xl font-semibold mb-8">Remember When...</h2>
+      <p class="text-lg text-gray-700 mb-8">Some of our favorite memories.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Photo 1 -->
+        <div class="relative group aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <img src="https://images.unsplash.com/photo-1549727457-37c2a7f5b3a4?q=80&w=2574&auto=format&fit=crop" 
+               alt="Couple at the beach" 
+               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">The beach trip!</p>
+          </div>
+        </div>
+        <!-- Photo 2 -->
+        <div class="relative group aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <img src="https://images.unsplash.com/photo-1541575231904-4b95f17d23f3?q=80&w=2671&auto=format&fit=crop" 
+               alt="A cozy coffee date" 
+               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">Coffee dates</p>
+          </div>
+        </div>
+        <!-- Photo 3 -->
+        <div class="relative group aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <img src="https://images.unsplash.com/photo-1555541604-06c88820c75a?q=80&w=2670&auto=format&fit=crop" 
+               alt="Exploring the city" 
+               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">Exploring the city!</p>
+          </div>
+        </div>
+        <!-- Photo 4 -->
+        <div class="relative group aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <img src="https://images.unsplash.com/photo-1517724395345-23c2149b049e?q=80&w=2670&auto=format&fit=crop" 
+               alt="A romantic dinner" 
+               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">Our special dinner</p>
+          </div>
+        </div>
+        <!-- Photo 5 -->
+        <div class="relative group aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <img src="https://images.unsplash.com/photo-1519782485526-a0833b3a6d71?q=80&w=2670&auto=format&fit=crop" 
+               alt="Relaxing at home" 
+               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">Just lounging around</p>
+          </div>
+        </div>
+        <!-- Photo 6 -->
+        <div class="relative group aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <img src="https://images.unsplash.com/photo-1547472016-f28af6b92f70?q=80&w=2670&auto=format&fit=crop" 
+               alt="A beautiful sunset" 
+               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">The sunset hike</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="max-w-2xl mx-auto my-12 md:my-20 p-8 bg-white rounded-xl shadow-lg">
+      <h2 class="text-3xl sm:text-4xl font-semibold mb-4 text-center">A Little Note to You</h2>
+      <p class="text-lg leading-relaxed text-center">My dearest, these five years have been the most incredible journey of my life. You've brought so much light, laughter, and love into my world. I can't wait to see what the future holds for us. Thank you for being you. I love you more than words can say.</p>
+      <p class="mt-6 text-xl text-center font-cursive">Forever yours,<br>John Doe</p>
+    </section>
+
+  </main>
+  
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 Our Story. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let slideIndex = 0;
+      // You can add your image links here
+      const slides = [
+        "https://i.postimg.cc/15wVKbYf/my-salad.png",
+        "https://i.postimg.cc/15wVKbYf/my-salad.png",
+        "https://images.unsplash.com/photo-1520668045300-85f09100085a?q=80&w=2670&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1521747116042-51152a8069d3?q=80&w=2670&auto=format&fit=crop",
+        "https://i.postimg.cc/15wVKbYf/my-salad.png"
+      ];
+      
+      const slideshowImg = document.querySelector('.slideshow-img');
+      const prevButton = document.querySelector('.prev');
+      const nextButton = document.querySelector('.next');
+      
+      function showSlides() {
+        if (slides.length === 0) {
+          slideshowImg.src = '';
+          return;
+        }
+        
+        // Wrap around logic
+        if (slideIndex >= slides.length) { slideIndex = 0; }
+        if (slideIndex < 0) { slideIndex = slides.length - 1; }
+        
+        slideshowImg.src = slides[slideIndex];
+      }
+      
+      prevButton.addEventListener('click', () => {
+        slideIndex--;
+        showSlides();
+      });
+      
+      nextButton.addEventListener('click', () => {
+        slideIndex++;
+        showSlides();
+      });
+      
+      // Initialize slideshow
+      showSlides();
+    });
+  </script>
+
+</body>
+</html>
